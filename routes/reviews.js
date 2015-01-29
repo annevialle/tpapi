@@ -1,75 +1,79 @@
 var express = require('express');
 var router = express.Router();
 
-var reviews = [
-	{
-		id: 0,
-		name: 'McDo',
-		placeType: 'Fastfood',
-		stars: '3'
-	}
-];
+var Reviews = require('../database/reviews');
 
 router.get('/', function(req, res, next) {
-    res.send(reviews);
+    Reviews.find({}, function (err, reviews) {
+    	if (err) {
+    		res.status(500).send(err);
+    	}
+    	res.status(200).send(reviews);
+    });
 });
 
 router.post('/', function(req, res) {
-	if (!req.body.name) {
-		res.status(400).send();
+	if (!req.body.name || !req.body.placeType || !req.body.stars) {
+		res.status(400).send("Attribut(s) non valide(s)");
 	}
 	else {
-		console.log(req.body);
-		reviews.push(req.body);
-		res.status(201).send();
-		res.send(reviews);	
+		Reviews.create(req.body, function(err, review){
+			if(err) {
+				res.status(500).send(err);
+			}
+			res.status(201).send(review);
+		});	
 
 	}
 });
 
 router.delete('/', function(req, res) {
-    res.send('ok');
+    Reviews.remove(function(err, review) {
+    	if (err) {
+    		res.status(500).send();
+    	};
+    	res.status(200).send();
+    });
 });
 
 router.get('/:id', function(req, res) {
-
 	if(req.params.id) {
 
-			var found = false;
+		Reviews.findById(req.params.id, function(err, review) {
+			if (err) {
+				res.status(500).send();
+			};
 
-			for(var k=0; k<reviews.length; k++) {
+			res.status(200).send(review);
+		});
 
-				if((reviews[k].id) == (req.params.id)) {
-					
-					res.send(reviews[req.params.id]);
-					res.status(200).send();
-
-				}
-			}
-
-
-			res.status(404).send();
-			res.send('Id introuvable');
-	}
+	};
 });
 
 router.put('/:id', function(req, res) {
-	if (!req.body.name) {
+	if (!req.body) {
 		res.status(400).send();
 	}else{
-		console.log(req.body.name);
-		reviews[req.params.id].name = req.body.name;
-		reviews[req.params.id].placeType = req.body.placeType;
-		reviews[req.params.id].stars = req.body.stars;
-		res.status(200).send();
-		res.send('Modifications effectuées');
-	}
+		Reviews.findByIdAndUpdate(req.params.id, req.body, function(err, review) {
+			if (err) {
+				res.status(500).send();
+			};
+		});
+		res.status(200).send('Modifications effectuées');
+	};
 });
 
 router.delete('/:id', function(req, res) {
-	reviews.splice(req.params.id, 1);
-	res.status(200).send();
-	res.send("Suppression effectuée");
+	if (!req.body) {
+		res.status(400).send();
+	}else{
+		Reviews.findByIdAndRemove(req.params.id, function(err, review) {
+			if (err) {
+				res.status(500).send();
+			};
+		});
+		res.status(200).send('Review supprimée');
+	};
 });
 
 module.exports = router;
