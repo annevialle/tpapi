@@ -1,28 +1,89 @@
 0 info it worked if it ends with ok
 1 verbose cli [ 'c:\\Program Files (x86)\\nodejs\\node.exe',
 1 verbose cli   'c:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
-1 verbose cli   'start' ]
+1 verbose cli   'install',
+1 verbose cli   'node-XMLHttpRequest' ]
 2 info using npm@1.4.28
 3 info using node@v0.10.35
-4 verbose run-script [ 'prestart', 'start', 'poststart' ]
-5 info prestart tp@0.0.1
-6 info start tp@0.0.1
-7 verbose unsafe-perm in lifecycle true
-8 info tp@0.0.1 Failed to exec start script
-9 error tp@0.0.1 start: `node ./bin/www`
-9 error Exit status 8
-10 error Failed at the tp@0.0.1 start script.
-10 error This is most likely a problem with the tp package,
-10 error not with npm itself.
-10 error Tell the author that this fails on your system:
-10 error     node ./bin/www
-10 error You can get their info via:
-10 error     npm owner ls tp
-10 error There is likely additional logging output above.
-11 error System Windows_NT 6.2.9200
-12 error command "c:\\Program Files (x86)\\nodejs\\node.exe" "c:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "start"
-13 error cwd c:\Users\Anne\tp
-14 error node -v v0.10.35
-15 error npm -v 1.4.28
-16 error code ELIFECYCLE
-17 verbose exit [ 1, true ]
+4 verbose readDependencies using package.json deps
+5 verbose cache add [ 'node-XMLHttpRequest', null ]
+6 verbose cache add name=undefined spec="node-XMLHttpRequest" args=["node-XMLHttpRequest",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'node-XMLHttpRequest',
+7 verbose parsed url   path: 'node-XMLHttpRequest',
+7 verbose parsed url   href: 'node-XMLHttpRequest' }
+8 silly lockFile fdaa254e-node-XMLHttpRequest node-XMLHttpRequest
+9 verbose lock node-XMLHttpRequest C:\Users\Anne\AppData\Roaming\npm-cache\fdaa254e-node-XMLHttpRequest.lock
+10 silly lockFile fdaa254e-node-XMLHttpRequest node-XMLHttpRequest
+11 silly lockFile fdaa254e-node-XMLHttpRequest node-XMLHttpRequest
+12 verbose addNamed [ 'node-XMLHttpRequest', '' ]
+13 verbose addNamed [ null, '*' ]
+14 silly lockFile 31d21a7f-node-XMLHttpRequest node-XMLHttpRequest@
+15 verbose lock node-XMLHttpRequest@ C:\Users\Anne\AppData\Roaming\npm-cache\31d21a7f-node-XMLHttpRequest.lock
+16 silly addNameRange { name: 'node-XMLHttpRequest', range: '*', hasData: false }
+17 verbose request where is /node-XMLHttpRequest
+18 verbose request registry https://registry.npmjs.org/
+19 verbose request id ed499bd04a584526
+20 verbose url raw /node-XMLHttpRequest
+21 verbose url resolving [ 'https://registry.npmjs.org/', './node-XMLHttpRequest' ]
+22 verbose url resolved https://registry.npmjs.org/node-XMLHttpRequest
+23 verbose request where is https://registry.npmjs.org/node-XMLHttpRequest
+24 info trying registry request attempt 1 at 10:03:48
+25 http GET https://registry.npmjs.org/node-XMLHttpRequest
+26 http 404 https://registry.npmjs.org/node-XMLHttpRequest
+27 verbose headers { date: 'Fri, 30 Jan 2015 09:03:50 GMT',
+27 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+27 verbose headers   'content-type': 'application/json',
+27 verbose headers   'cache-control': 'max-age=0',
+27 verbose headers   'content-length': '52',
+27 verbose headers   'accept-ranges': 'bytes',
+27 verbose headers   via: '1.1 varnish',
+27 verbose headers   age: '0',
+27 verbose headers   'x-served-by': 'cache-ams4126-AMS',
+27 verbose headers   'x-cache': 'MISS',
+27 verbose headers   'x-cache-hits': '0',
+27 verbose headers   'x-timer': 'S1422608629.665300,VS0,VE746',
+27 verbose headers   'keep-alive': 'timeout=10, max=50',
+27 verbose headers   connection: 'Keep-Alive' }
+28 silly registry.get cb [ 404,
+28 silly registry.get   { date: 'Fri, 30 Jan 2015 09:03:50 GMT',
+28 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+28 silly registry.get     'content-type': 'application/json',
+28 silly registry.get     'cache-control': 'max-age=0',
+28 silly registry.get     'content-length': '52',
+28 silly registry.get     'accept-ranges': 'bytes',
+28 silly registry.get     via: '1.1 varnish',
+28 silly registry.get     age: '0',
+28 silly registry.get     'x-served-by': 'cache-ams4126-AMS',
+28 silly registry.get     'x-cache': 'MISS',
+28 silly registry.get     'x-cache-hits': '0',
+28 silly registry.get     'x-timer': 'S1422608629.665300,VS0,VE746',
+28 silly registry.get     'keep-alive': 'timeout=10, max=50',
+28 silly registry.get     connection: 'Keep-Alive' } ]
+29 silly lockFile 31d21a7f-node-XMLHttpRequest node-XMLHttpRequest@
+30 silly lockFile 31d21a7f-node-XMLHttpRequest node-XMLHttpRequest@
+31 error 404 404 Not Found: node-XMLHttpRequest
+31 error 404
+31 error 404 'node-XMLHttpRequest' is not in the npm registry.
+31 error 404 You should bug the author to publish it
+31 error 404 It was specified as a dependency of 'tp'
+31 error 404
+31 error 404 Maybe try 'npm search     ttp equest'
+31 error 404
+31 error 404 Note that you can also install from a
+31 error 404 tarball, folder, or http url, or git url.
+32 error System Windows_NT 6.2.9200
+33 error command "c:\\Program Files (x86)\\nodejs\\node.exe" "c:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "node-XMLHttpRequest"
+34 error cwd c:\Users\Anne\tp
+35 error node -v v0.10.35
+36 error npm -v 1.4.28
+37 error code E404
+38 verbose exit [ 1, true ]

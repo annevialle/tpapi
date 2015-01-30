@@ -8,7 +8,12 @@ router.get('/', function(req, res, next) {
     	if (err) {
     		res.status(500).send(err);
     	}
-    	res.status(200).send(reviews);
+    	if (req.get('Accept').toString().match(/html/)) {
+    		res.render('reviews', {reviews: reviews});	
+    	}
+    	else {
+    		res.status(200).send(reviews);
+    	}
     });
 });
 
