@@ -7,4 +7,4 @@ block content
 		p= review.placeType
 		p= review.stars
 		p
-			a(id="delete" href="/reviews/" + review.id)= "supprimer"
+			img(src='/assets/etoile.png' onclick='deleteReview("#{review.id}")')

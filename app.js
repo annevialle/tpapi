@@ -12,8 +12,6 @@ var reviews = require('./routes/reviews');
 var database = require('./database/index');
 var app = express();
 
-var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-var xmlr = new XMLHttpRequest();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -59,14 +57,5 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-
-function reqListener () {
-  console.log(this.responseText);
-}
-
-var oReq = new XMLHttpRequest();
-oReq.onload = reqListener;
-oReq.open("delete", "/reviews/", true);
-oReq.send();
 
 module.exports = app;
